@@ -36,6 +36,8 @@ RUN . /root/py37/bin/activate &&\
 RUN . /root/py37/bin/activate && pip install Pillow PyMySQL scikit-image scikit-learn scipy seaborn urllib3 tqdm 
 
 # env launch
+VOLUME /root/py37
+
 RUN echo "source /root/py37/bin/activate" >> .bashrc
 CMD ["/bin/bash"]
 
