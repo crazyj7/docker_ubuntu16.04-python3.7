@@ -33,6 +33,7 @@ RUN . /root/py37/bin/activate &&\
  pip install beautifulsoup4 ecdsa Flask Flask-RESTful 
 RUN . /root/py37/bin/activate &&\
  pip install glob2 matplotlib numpy pandas 
+RUN . /root/py37/bin/activate && pip install Pillow PyMySQL scikit-image scikit-learn scipy seaborn urllib3 tqdm 
 
 # env launch
 RUN echo "source /root/py37/bin/activate" >> .bashrc
