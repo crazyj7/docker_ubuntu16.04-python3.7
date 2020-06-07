@@ -13,31 +13,18 @@ RUN apt-get install -y ocl-icd-opencl-dev
 RUN add-apt-repository -y ppa:deadsnakes/ppa
 RUN apt-get update -y
 RUN apt-get install -y python3.7
+RUN apt-get install -y python3.7-venv
 
 # env
 WORKDIR /root
 ENV HOME /root
 
-RUN apt-get install -y python3.7-venv
-
-RUN python3.7 -m venv py37
-
-#SHELL ["/bin/bash", "-c"]
-#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-
-RUN ls /root/py37/bin
-RUN /bin/bash -c "source /root/py37/bin/activate &&\
- pip install --upgrade pip &&\
- pip install jupyter"
-RUN . /root/py37/bin/activate &&\
- pip install beautifulsoup4 ecdsa Flask Flask-RESTful 
-RUN . /root/py37/bin/activate &&\
- pip install glob2 matplotlib numpy pandas 
-RUN . /root/py37/bin/activate && pip install Pillow PyMySQL scikit-image scikit-learn scipy seaborn urllib3 tqdm 
-
-# env launch
-VOLUME /root/py37
+SHELL ["/bin/bash", "-c"]
+ENV PATH "/root/py37/bin:$PATH"
 
 RUN echo "source /root/py37/bin/activate" >> .bashrc
-CMD ["/bin/bash"]
+COPY ./requirements.txt /root/requirements.txt
+COPY ./initvenv.sh /root/initvenv.sh
+ENTRYPOINT /root/initvenv.sh
 
+VOLUME /root/py37
