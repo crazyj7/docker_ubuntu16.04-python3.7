@@ -1,12 +1,18 @@
 # Ubuntu 16.04 + python 3.7
 
-+ Windows 
++ Docker build
+```
+docker build -t crazyj7/ubuntu16.04-python3.7 .
+```
+
++ Docker container launch
+	+ Windows 
 ```
 docker run -it -v /c/docker/python:/root/py37 crazyj7/ubuntu16.04-python3.7
 ```
-+ Linux
+	+ Linux
 ```
-docker run -it -v /c/docker/python:/root/py37 crazyj7/ubuntu16.04-python3.7
+docker run -it -v /home/crazyj7/docker/python:/root/py37 crazyj7/ubuntu16.04-python3.7
 ```
 
 + initvenv.sh script always launch. 
