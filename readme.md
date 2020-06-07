@@ -10,8 +10,7 @@ docker build -t crazyj7/ubuntu16.04-python3.7 .
 ```
 # venv py37 launch. bash
 docker run -it -v /c/hub/docker_ubuntu16.04-python3.7/py37:/root/py37 crazyj7/ubuntu16.04-python3.7
-# jupyter notebook launch.
-docker run -it -v /c/hub/docker_ubuntu16.04-python3.7/py37:/root/py37 -p 8888:8888 crazyj7/ubuntu16.04-python3.7 jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root
+# jupyter notebook launch.docker run -it -v /c/hub/docker_ubuntu16.04-python3.7/py37:/root/py37 -p 8888:8888 crazyj7/ubuntu16.04-python3.7 jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --NotebookApp.token='' --NotebookApp.password=''
 ```
  + Linux
 ```
