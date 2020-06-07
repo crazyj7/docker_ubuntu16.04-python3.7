@@ -25,6 +25,7 @@ ENV PATH "/root/py37/bin:$PATH"
 RUN echo "source /root/py37/bin/activate" >> .bashrc
 COPY ./requirements.txt /root/requirements.txt
 COPY ./initvenv.sh /root/initvenv.sh
-ENTRYPOINT /root/initvenv.sh
+ENTRYPOINT ["/bin/bash", "-c", "/root/initvenv.sh \"$@\"", "--"]
 
 VOLUME /root/py37
+CMD ["/bin/bash"]

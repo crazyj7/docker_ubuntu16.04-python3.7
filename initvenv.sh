@@ -12,4 +12,8 @@ else
 	pip install -r requirements.txt
 fi
 
-/bin/bash
+if [ $# ]; then
+	$*
+else
+	/bin/bash
+fi
