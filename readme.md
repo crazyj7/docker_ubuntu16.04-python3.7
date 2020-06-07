@@ -8,11 +8,14 @@ docker build -t crazyj7/ubuntu16.04-python3.7 .
 + Docker container launch
  + Windows 
 ```
-docker run -it -v /c/docker/python:/root/py37 crazyj7/ubuntu16.04-python3.7
+# venv py37 launch. bash
+docker run -it -v /c/hub/docker_ubuntu16.04-python3.7/py37:/root/py37 crazyj7/ubuntu16.04-python3.7
+# jupyter notebook launch.
+docker run -it -v /c/hub/docker_ubuntu16.04-python3.7/py37:/root/py37 -p 8888:8888 crazyj7/ubuntu16.04-python3.7 jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root
 ```
  + Linux
 ```
-docker run -it -v /home/crazyj7/docker/python:/root/py37 crazyj7/ubuntu16.04-python3.7
+docker run -it -v /home/crazyj7/docker_ubuntu16.04-python3.7/py37:/root/py37 crazyj7/ubuntu16.04-python3.7
 ```
 
 + initvenv.sh script always launch. 
