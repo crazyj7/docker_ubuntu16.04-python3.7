@@ -29,3 +29,29 @@ else
 
 + You can install another python packages. And it does NOT removed. 
 
+
+
+```
++ Install New Package
+c:\hub\docker_ubuntu16.04-python3.7>docker run -it -v /c/hub/docker_ubuntu16.04-python3.7/py37:/root/py37 crazyj7/ubuntu16.04-python3.7
+(py37) root@3c4e19680b34:~# pip install jakecipher
+Collecting jakecipher
+  Downloading jakecipher-0.1.4-py3-none-any.whl (15 kB)
+Requirement already satisfied: numpy in ./py37/lib/python3.7/site-packages (from jakecipher) (1.18.5)
+Installing collected packages: jakecipher
+Successfully installed jakecipher-0.1.4
+(py37) root@3c4e19680b34:~# exit
+exit
+
++ You can use the package in the new container.
+c:\hub\docker_ubuntu16.04-python3.7>docker run -it -v /c/hub/docker_ubuntu16.04-python3.7/py37:/root/py37 crazyj7/ubuntu16.04-python3.7
+(py37) root@cf33c4cfb1e4:~# python
+Python 3.7.7 (default, Mar 10 2020, 17:25:08)
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import jakecipher
+>>> exit()
+(py37) root@cf33c4cfb1e4:~#
+
+```
+
