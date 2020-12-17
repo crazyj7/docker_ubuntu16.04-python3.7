@@ -61,7 +61,6 @@ RUN echo "export LANG=ko_KR.UTF-8" >> .bashrc
 RUN echo "source /root/py37/bin/activate" >> .bashrc
 COPY ./requirements.txt /root/requirements.txt
 COPY ./initvenv.sh /root/initvenv.sh
-COPY ./install_chrome.sh /root/install_chrome.sh
 ENTRYPOINT ["/bin/bash", "-c", "/root/initvenv.sh \"$@\"", "--"]
 
 VOLUME /root/py37
