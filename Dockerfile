@@ -56,12 +56,20 @@ RUN wget -N https://selenium-release.storage.googleapis.com/${SELENIUM_SUBDIR}/s
 
 ### selenium end
 
+### etc.. locale
 RUN apt-get install -y language-pack-ko && update-locale LANG=ko_KR.UTF-8
+RUN apt-get install -y ttf-unfonts-core tzdata 
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+RUN echo "cron.* /var/log/cron.log" >> /etc/rsyslog.conf
+
+### shell script
 RUN echo "export LANG=ko_KR.UTF-8" >> .bashrc
 RUN echo "source /root/py37/bin/activate" >> .bashrc
+
 COPY ./requirements.txt /root/requirements.txt
 COPY ./initvenv.sh /root/initvenv.sh
 ENTRYPOINT ["/bin/bash", "-c", "/root/initvenv.sh \"$@\"", "--"]
 
 VOLUME /root/py37
 CMD ["/bin/bash"]
+

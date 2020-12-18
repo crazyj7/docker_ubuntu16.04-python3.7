@@ -76,3 +76,8 @@ webencodings==0.5.1
 Werkzeug==1.0.1
 widgetsnbextension==3.5.1
 zipp==3.1.0
+selenium==3.141.0
+beautifulsoup4==4.9.1
+bs4==0.0.1
+soupsieve==2.0.1
+lxml==4.6.2
