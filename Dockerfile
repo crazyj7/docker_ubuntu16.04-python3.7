@@ -60,6 +60,9 @@ RUN wget -N https://selenium-release.storage.googleapis.com/${SELENIUM_SUBDIR}/s
 RUN apt-get install -y language-pack-ko && update-locale LANG=ko_KR.UTF-8
 RUN apt-get install -y ttf-unfonts-core tzdata 
 RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
+## rsyslog for cron debug log
+RUN apt-get install -y rsyslog
 RUN echo "cron.* /var/log/cron.log" >> /etc/rsyslog.conf
 
 ### shell script
