@@ -80,4 +80,4 @@ selenium==3.141.0
 beautifulsoup4==4.9.1
 bs4==0.0.1
 soupsieve==2.0.1
-lxml==4.6.2
+lxml==4.6.3
